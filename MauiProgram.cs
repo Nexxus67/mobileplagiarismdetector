@@ -1,7 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using PlagiarismDetectorMobile.Pages;
-namespace PlagiarismDetectorMobile;
 using PlagiarismDetectorMobile.Services;
+using PlagiarismDetectorMobile.Interfaces;
+
+namespace PlagiarismDetectorMobile;
+
 
 
 public static class MauiProgram
@@ -21,6 +24,7 @@ public static class MauiProgram
 
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
+        builder.Services.AddSingleton<IPlagiarismDetectionService, PlagiarismDetectionService>();
         builder.Logging.AddDebug();
 #endif
 

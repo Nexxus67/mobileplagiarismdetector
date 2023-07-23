@@ -63,8 +63,10 @@
     <ItemGroup>
       <Folder Include="wwwroot\js\" />
       <Folder Include="Services\" />
+      <Folder Include="Interfaces\" />
     </ItemGroup>
     <ItemGroup>
       <None Remove="Services\" />
+      <None Remove="Interfaces\" />
     </ItemGroup>
 </Project>
