@@ -4,24 +4,27 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.PlagiarismDetectorMobile PreferredExecutionTarget="MyAppleMacCatalystID" />
   <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="PlagiarismDetectorMobile/Pages/PlagiarismDetector.razor">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlagiarismDetectorMobile/Services/PlagiarismDetectionService.cs">
     <Files>
       <File FileName="PlagiarismDetectorMobile/Interfaces/ISettingsService.cs" Line="9" Column="61" />
-      <File FileName="PlagiarismDetectorMobile/Services/PlagiarismDetectionService.cs" Line="56" Column="8" />
+      <File FileName="PlagiarismDetectorMobile/Services/PlagiarismDetectionService.cs" Line="15" Column="35" />
       <File FileName="PlagiarismDetectorMobile/Services/SettingsService.cs" Line="21" Column="3" />
-      <File FileName="PlagiarismDetectorMobile/Pages/PlagiarismDetector.razor" Line="17" Column="38" />
+      <File FileName="PlagiarismDetectorMobile/Pages/PlagiarismDetector.razor" Line="20" Column="38" />
       <File FileName="PlagiarismDetectorMobile/Pages/Index.razor" Line="1" Column="1" />
-      <File FileName="PlagiarismDetectorMobile/MauiProgram.cs" Line="23" Column="36" />
+      <File FileName="PlagiarismDetectorMobile/MauiProgram.cs" Line="28" Column="37" />
       <File FileName="PlagiarismDetectorMobile/Platforms/Android/Resources/values/colors.xml" Line="1" Column="1" />
       <File FileName="PlagiarismDetectorMobile/MainPage.xaml" Line="1" Column="1" />
-      <File FileName="PlagiarismDetectorMobile/.gitignore" Line="11" Column="1" />
+      <File FileName="PlagiarismDetectorMobile/.gitignore" Line="15" Column="5" />
+      <File FileName="PlagiarismDetectorMobile/Interfaces/IPlagiarismDetectionService.cs" Line="7" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="PlagiarismDetectorMobile" expanded="True">
-            <Node name="PlagiarismDetectorMobile" expanded="True">
-              <Node name="Interfaces" expanded="True" />
+          <Node name="PlagiarismDetectorMobile">
+            <Node name="PlagiarismDetectorMobile">
+              <Node name="Services">
+                <Node name="PlagiarismDetectionService.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

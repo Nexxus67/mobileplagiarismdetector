@@ -12,3 +12,4 @@ obj/
 # Ignoreany NuGet packages
 *.nupkg
 **/packages/*
+.vs/
