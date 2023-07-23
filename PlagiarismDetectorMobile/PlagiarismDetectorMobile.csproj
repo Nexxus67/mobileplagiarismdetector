@@ -54,6 +54,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.7.7" />
     </ItemGroup>
 
     <ItemGroup>
@@ -61,5 +62,11 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="wwwroot\js\" />
+      <Folder Include="Services\" />
+      <Folder Include="Interfaces\" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Services\" />
+      <None Remove="Interfaces\" />
     </ItemGroup>
 </Project>

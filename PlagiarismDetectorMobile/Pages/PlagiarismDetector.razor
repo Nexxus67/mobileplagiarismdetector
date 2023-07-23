@@ -5,14 +5,17 @@
 @using System.Text.RegularExpressions
 @using System.Collections.Generic
 @using System.Linq
+@using PlagiarismDetectorMobile.Interfaces
 @inject IJSRuntime JSRuntime
+@inject IPlagiarismDetectionService PlagiarismDetectionService
+
 <h1>@Title</h1>
 
 <InputFile OnChange="OnFile1Change" accept=".cs,.txt" />
 <br />
 <InputFile OnChange="OnFile2Change" accept=".cs,.txt" />
 <br />
-<label for="n">Size of de n-grams:</label>
+<label for="n">Size of the n-grams:</label>
 <select @bind="N">
     <option value="1">1-gram</option>
     <option value="2">2-gram</option>
@@ -68,7 +71,7 @@
     {
         if (!string.IsNullOrEmpty(File1Content) && !string.IsNullOrEmpty(File2Content))
         {
-            PlagiarismScore = CalculatePlagiarismScore(File1Content, File2Content, N);
+            PlagiarismScore = PlagiarismDetectionService.CalculatePlagiarismScore(File1Content, File2Content, N);
         }
     }
 
@@ -86,69 +89,5 @@
 
         // Downloading file using JS Interop
         await JSRuntime.InvokeVoidAsync("saveAsFile", fileName, report);
-    }
-
-    // All your existing methods from IndexModel can be moved here as private methods.
-    private List<string> GetNGrams(string code, int n)
-    {
-        code = code.ToLower(); // Convert to lowercase
-        List<string> ngrams = new List<string>();
-        for (int i = 0; i <= code.Length - n; i++)
-        {
-            string ngram = code.Substring(i, n);
-            ngrams.Add(ngram);
-        }
-        return ngrams;
-    }
-
-    private double CalculateJaccardSimilarity(List<string> ngrams1, List<string> ngrams2)
-    {
-        var set1 = new HashSet<string>(ngrams1);
-        var set2 = new HashSet<string>(ngrams2);
-
-        int intersection = set1.Intersect(set2).Count();
-        int union = set1.Union(set2).Count();
-
-        double jaccardSimilarity = (double)intersection / union;
-        return jaccardSimilarity;
-    }
-
-    private double CalculatePlagiarismScore(string code1, string code2, int n)
-    {
-        if (n <= 0 || n > code1.Length || n > code2.Length)
-        {
-            throw new ArgumentException("The value of n has to be between 1 and the smallest code size");
-        }
-
-        List<string> ngramsCode1 = GetNGrams(code1, n);
-        List<string> ngramsCode2 = GetNGrams(code2, n);
-
-        int totalNgrams = ngramsCode1.Count;
-        int matches = 0;
-
-        foreach (string ngram in ngramsCode1)
-        {
-            if (ngramsCode2.Contains(ngram))
-            {
-                matches++;
-            }
-        }
-
-        double plagiarismPercentage = (double)matches / totalNgrams * 100;
-        return plagiarismPercentage;
-    }
-
-    private string RemoveCommentsAndWhitespace(string code)
-    {
-        // Remove single-line comments (// ...)
-        code = Regex.Replace(code, @"\/\/.*", "");
-
-        // Remove multi-line comments (/* ... */)
-        code = Regex.Replace(code, @"/\*(.|\n)*?\*/", "");
-
-        // Remove whitespaces, tabs, and newlines
-        code = Regex.Replace(code, @"\s+", "");
-
-        return code;
     }
 }
