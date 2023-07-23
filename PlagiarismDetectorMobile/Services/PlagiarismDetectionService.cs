@@ -3,7 +3,7 @@ using PlagiarismDetectorMobile.Interfaces;
 
 namespace PlagiarismDetectorMobile.Pages
 {
-    public class PlagiarismDetectionService : IPlagiarismDetectionService
+    public class PlagiarismDetectionService : IPlagiarismDetectionService 
     {
         private List<string> GetNGrams(string code, int n)
         {
