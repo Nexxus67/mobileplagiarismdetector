@@ -2,3 +2,7 @@ ConnectedServices
 Dependencies
 Platforms
 Properties
+App.Xaml
+Main.razor
+MainPage.xaml
+_Imports.razor
