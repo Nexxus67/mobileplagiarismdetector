@@ -1,0 +1,93 @@
+﻿@page "/plagiarismdetector"
+@using Microsoft.JSInterop
+@using Microsoft.AspNetCore.Components.Forms
+@using System.IO
+@using System.Text.RegularExpressions
+@using System.Collections.Generic
+@using System.Linq
+@using PlagiarismDetectorMobile.Interfaces
+@inject IJSRuntime JSRuntime
+@inject IPlagiarismDetectionService PlagiarismDetectionService
+
+<h1>@Title</h1>
+
+<InputFile OnChange="OnFile1Change" accept=".cs,.txt" />
+<br />
+<InputFile OnChange="OnFile2Change" accept=".cs,.txt" />
+<br />
+<label for="n">Size of the n-grams:</label>
+<select @bind="N">
+    <option value="1">1-gram</option>
+    <option value="2">2-gram</option>
+    <option value="3">3-gram</option>
+    <option value="4">4-gram</option>
+    <option value="5">5-gram</option>
+    <option value="6">6-gram</option>
+    <option value="7">7-gram</option>
+    <option value="8">8-gram</option>
+    <option value="9">9-gram</option>
+    <option value="10">10-gram</option>
+</select>
+<br />
+<button @onclick="CompareFiles">Compare files</button>
+
+@if (PlagiarismScore.HasValue)
+{
+    <h3>Results:</h3>
+    <p>Possible plagiarism percentage: @PlagiarismScore.Value%</p>
+    <button @onclick="DownloadReport">Download Report</button>
+}
+
+@code {
+    string Title = "Plagiarism Detector";
+    int N = 3;
+    double? PlagiarismScore;
+    string File1Content;
+    string File2Content;
+
+    private async Task OnFile1Change(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            Stream stream = file.OpenReadStream();
+            using StreamReader reader = new(stream);
+            File1Content = await reader.ReadToEndAsync();
+        }
+    }
+
+    private async Task OnFile2Change(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            Stream stream = file.OpenReadStream();
+            using StreamReader reader = new(stream);
+            File2Content = await reader.ReadToEndAsync();
+        }
+    }
+
+    private void CompareFiles()
+    {
+        if (!string.IsNullOrEmpty(File1Content) && !string.IsNullOrEmpty(File2Content))
+        {
+            PlagiarismScore = PlagiarismDetectionService.CalculatePlagiarismScore(File1Content, File2Content, N);
+        }
+    }
+
+    private async Task DownloadReport()
+    {
+        if (!PlagiarismScore.HasValue)
+        {
+            return;
+        }
+
+        var report = $"Resultado de la comparación de archivos:\nPorcentaje de similitud: {PlagiarismScore.Value}%";
+        string fileName = "plagiarism_report.txt";
+        string filePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), fileName);
+        await System.IO.File.WriteAllTextAsync(filePath, report);
+
+        // Downloading file using JS Interop
+        await JSRuntime.InvokeVoidAsync("saveAsFile", fileName, report);
+    }
+}

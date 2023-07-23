@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{6E04AC09-5C21-42A0-9A4C-98D4CAD2B389}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.PlagiarismDetectorMobile PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlagiarismDetectorMobile/Pages/PlagiarismDetector.razor">
+    <Files>
+      <File FileName="PlagiarismDetectorMobile/Interfaces/ISettingsService.cs" Line="9" Column="61" />
+      <File FileName="PlagiarismDetectorMobile/Services/PlagiarismDetectionService.cs" Line="56" Column="8" />
+      <File FileName="PlagiarismDetectorMobile/Services/SettingsService.cs" Line="21" Column="3" />
+      <File FileName="PlagiarismDetectorMobile/Pages/PlagiarismDetector.razor" Line="17" Column="38" />
+      <File FileName="PlagiarismDetectorMobile/Pages/Index.razor" Line="1" Column="1" />
+      <File FileName="PlagiarismDetectorMobile/MauiProgram.cs" Line="23" Column="36" />
+      <File FileName="PlagiarismDetectorMobile/Platforms/Android/Resources/values/colors.xml" Line="1" Column="1" />
+      <File FileName="PlagiarismDetectorMobile/MainPage.xaml" Line="1" Column="1" />
+      <File FileName="PlagiarismDetectorMobile/.gitignore" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PlagiarismDetectorMobile" expanded="True">
+            <Node name="PlagiarismDetectorMobile" expanded="True">
+              <Node name="Interfaces" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+</Properties>
