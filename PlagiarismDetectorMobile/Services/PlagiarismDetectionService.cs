@@ -54,6 +54,4 @@ namespace PlagiarismDetectorMobile.Pages
             return plagiarismPercentage;
         }
     }  
-
 }
-
