@@ -25,7 +25,7 @@ public static class MauiProgram
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
         builder.Services.AddSingleton<IPlagiarismDetectionService, PlagiarismDetectionService>();
-        builder.Logging.AddDebug();
+        builder.Logging.AddDebug(); 
 #endif
 
 

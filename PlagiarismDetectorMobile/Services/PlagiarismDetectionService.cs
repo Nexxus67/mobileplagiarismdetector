@@ -53,7 +53,7 @@ namespace PlagiarismDetectorMobile.Pages
             double plagiarismPercentage = (double)matches / totalNgrams * 100;
             return plagiarismPercentage;
         }
-    } 
+    }  
 
 }
 

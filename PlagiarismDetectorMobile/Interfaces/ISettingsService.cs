@@ -6,6 +6,6 @@ namespace PlagiarismDetectorMobile.Services
     {
         Task<string> GetUserPreferredLanguageAsync();
 
-        Task SetUserPreferredLanguageAsync(string language); 
+        Task SetUserPreferredLanguageAsync(string language);  
     }
 }
