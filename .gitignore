@@ -6,3 +6,5 @@ App.Xaml
 Main.razor
 MainPage.xaml
 _Imports.razor
+bin
+obj
