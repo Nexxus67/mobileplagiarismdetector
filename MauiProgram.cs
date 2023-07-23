@@ -2,7 +2,6 @@
 using PlagiarismDetectorMobile.Pages;
 using PlagiarismDetectorMobile.Services;
 using PlagiarismDetectorMobile.Interfaces;
-
 namespace PlagiarismDetectorMobile;
 
 

@@ -1,11 +1,9 @@
-using System.Threading.Tasks;
+using System;
 
-namespace PlagiarismDetectorMobile.Services
+namespace PlagiarismDetectorMobile.Interfaces
 {
-    public interface ISettingsService
+    public interface IPlagiarismDetectionService
     {
-        Task<string> GetUserPreferredLanguageAsync();
-
-        Task SetUserPreferredLanguageAsync(string language);
+        double CalculatePlagiarismScore(string code1, string code2, int n);
     }
 }
