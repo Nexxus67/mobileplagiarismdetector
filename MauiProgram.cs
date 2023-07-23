@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using PlagiarismDetectorMobile.Pages;
-
-
 namespace PlagiarismDetectorMobile;
+using PlagiarismDetectorMobile.Services;
+
 
 public static class MauiProgram
 {
@@ -15,6 +15,7 @@ public static class MauiProgram
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
+        builder.Services.AddSingleton<ISettingsService, SettingsService>();
 
         builder.Services.AddMauiBlazorWebView();
 
