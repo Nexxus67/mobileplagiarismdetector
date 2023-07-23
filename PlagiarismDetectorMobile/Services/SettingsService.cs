@@ -16,6 +16,6 @@ namespace PlagiarismDetectorMobile.Services
         {
             Preferences.Set(UserPreferredLanguageKey, language);
             return Task.CompletedTask;
-        }
+        } 
     }
 }
